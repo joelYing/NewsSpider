@@ -1,0 +1,17 @@
+通过第三方库readability-lxml抓取
+https://pypi.org/project/readability-lxml/
+
+# python3 -m pip install -i https://pypi.tuna.tsinghua.edu.cn/simple readability-lxml
+
+# create table baidunews(
+#     -> id int not null auto_increment,
+#     -> title varchar(255) not null,
+#     -> url varchar(100) not null,
+#     -> source varchar(40) not null,
+#     -> time int(15) not null,
+#     -> content text not null,
+#     -> primary key(id)
+#     -> )default charset=utf8;
+
+# 对于开源中国，英文类网站暂时还有问题
+# http://news.10jqka.com.cn/comment/605887577.shtml
