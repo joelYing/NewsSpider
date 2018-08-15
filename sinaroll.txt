@@ -1,0 +1,26 @@
+
+# mysql> create table sinaroll(
+#     -> id int not null auto_increment,
+#     -> type varchar(10) not null,
+#     -> title varchar(255) not null,
+#     -> url varchar(255) not null,
+#     -> time int(15) not null,
+#     -> content text not null,
+#     -> primary key(id)
+#     -> )default charset=utf8;
+
+# 	ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near
+#
+# 1、
+# 	原来是我在定义和创建表格的字段时误用了mysql的关键字：
+# 	第一，修改该表格中的字段名，改成不是mysql的内置关键字
+# 	第二，继续使用该表格定义，在插入数据时，对该关键字两边添加倒引号
+# 2、
+# 	"INSERT INTO SINAROLL(`type`,title,url,`time`,content)VALUES ('%s','%s','%s','%s','%s')"%(type,title,url,time,content)
+# 	注意是'%s'
+
+# 使用truncate清空全部数据主键自增长是从1开始(效率更高)
+# truncate table 你的表名
+
+#http://finance.sina.com.cn/world/2018-08-09/doc-ihhnunsq1253307.shtml  没有关键字标签
+#http://news.sina.com.cn/s/2018-08-10/doc-ihhnunsq7578880.shtml 插入未成功是因为内有视频
