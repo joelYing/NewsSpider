@@ -13,5 +13,6 @@ https://pypi.org/project/readability-lxml/
 #     -> primary key(id)
 #     -> )default charset=utf8;
 
-# 对于开源中国，英文类网站暂时还有问题
-# http://news.10jqka.com.cn/comment/605887577.shtml
+# 英文网站暂时未确定
+# 36氪把正文放在script中...
+# http://news.10jqka.com.cn/comment/605887577.shtml  针对某些网站需要添加请求头，如这个10jqka，以及开源中国
