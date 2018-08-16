@@ -9,6 +9,10 @@ import requests
 import pymysql
 
 class extract():
+    def __init__(self):
+        self.headers = {
+            'User-Agent':'your user-agent'
+        }
     def getNewsList(self, pn, keyword):
         """
         获取20条json类型的新闻信息（标题，url，来源，时间戳）
@@ -53,12 +57,13 @@ class extract():
         :return: none
         """
         keyword = input(u'请输入关键字：')
-        for i in range(0, 10):
+        for i in range(0, 5):
             all_info = self.getNewsList(i, keyword)
             for info in all_info:
                 print(info[1])
                 try:
-                    r = requests.get(info[1])
+                    # 对于某些网站需要添加请求头，如news.10jqka.com.cn ， 开源中国等
+                    r = requests.get(info[1], headers=self.headers)
                 except:
                     print(u'无法访问...')
                     continue
@@ -86,7 +91,7 @@ class extract():
         :param content: 正文内容
         :return: none
         """
-        database = pymysql.connect(host='localhost', port=3306, user='user', passwd='passwd', db='baidunews')
+        database = pymysql.connect(host='localhost', port=3306, user='root', passwd='123456', db='baidunews')
         cursor = database.cursor()
         try:
             select_sql = "select url from baidunews where url='%s'"%(url)
