@@ -91,7 +91,7 @@ class extract():
         :param content: 正文内容
         :return: none
         """
-        database = pymysql.connect(host='localhost', port=3306, user='root', passwd='123456', db='baidunews')
+        database = pymysql.connect(host='localhost', port=3306, user='', passwd='', db='baidunews')
         cursor = database.cursor()
         try:
             select_sql = "select url from baidunews where url='%s'"%(url)
