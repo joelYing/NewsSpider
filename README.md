@@ -12,7 +12,6 @@
 <https://www.cnblogs.com/zhengyou/p/3605458.html>
 
 ## Python
----
 
 简介、简单理解、安装、使用、总结
 
@@ -271,7 +270,6 @@ GitHub地址：<https://github.com/dcramer/decruft>
 未测试，应该与readability相近
 
 ## Java
-----
 
 ### Cx-extractor
 
@@ -452,7 +450,6 @@ Log**.**e**(**LOG_TAG**,** msg**,** t**);**
 ```
 
 ## Php
----
 
 爬虫框架：<https://github.com/owner888/phpspider>
 
@@ -497,7 +494,6 @@ GitHub地址：<https://github.com/feelinglucky/php-readability>
 ```
 
 ## Node.js
----
 
 ### arex
 
@@ -643,9 +639,8 @@ article**.**close**();**
 ```
 
 ## .Net
----
 
-### Html2Article
+* Html2Article
 
 #### 简介
 
