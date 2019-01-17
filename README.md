@@ -6,13 +6,13 @@
 * 二、百度新闻正文内容抓取（暂未添加定时功能），数据存入mysql，通过第三方库readability-lxml识别找到新闻的正文部分提取，有些许网站因网站结构不同故而提取存在问题<br>
 
 <br>
-网页正文提取
-------------
+## 网页正文提取
+---
 
 <https://www.cnblogs.com/zhengyou/p/3605458.html>
 
-Python
-------
+## Python
+---
 
 简介、简单理解、安装、使用、总结
 
@@ -38,9 +38,10 @@ text，Document会重新建立一个etree树，而summary()方法会遍历Dom对
 
 #### 安装
 
-pip install readability-lxml
+> pip install readability-lxml
 
 #### 使用
+```
 
 **import** requests
 
@@ -51,8 +52,9 @@ response **=** requests**.**get**(**'*http://example.com*'**)**
 doc **=** Document**(**response**.**text**)**
 
 doc**.**summary**()**
+```
 
-以*http://stock.10jqka.com.cn/20180817/c606560171.shtml*为例（此网站需要添加请求头）
+以<http://stock.10jqka.com.cn/20180817/c606560171.shtml>为例（此网站需要添加请求头）
 
 得到：
 
@@ -81,13 +83,14 @@ GitHub地址： <https://github.com/codelucas/newspaper>
 
 #### 安装
 
-pip install newspaper3k （Python3以上的版本）
+> pip install newspaper3k （Python3以上的版本）
 
-pip install newspaper （Python2版本）
+> pip install newspaper （Python2版本）
 
 #### 使用
 
 注意加上 language='zh' 否则大部分中文网站几乎提取不了，且支持多国语言
+```
 
 **from** newspaper **import** Article
 
@@ -98,6 +101,7 @@ article**.**download**()**
 article**.**parse**()**
 
 **print(**article**.**text**)**
+```
 
 得到：
 
@@ -142,9 +146,10 @@ GitHub地址：<https://github.com/grangier/python-goose> --要从源安装
 
 #### 安装
 
-pip install goose3
+> pip install goose3
 
 #### 使用
+```
 
 **from** goose3 **import** Goose
 
@@ -160,6 +165,7 @@ g**.**extract**(**url**=**'*http://news.k618.cn/society/201808/t20180817_1659403
 **print(**article**.**cleaned_text**)**
 
 **print(**article**.**title**)**
+```
 
 ![](media/e4748fa8de9e57f08cf1ce5e8f1e8fa8.png)
 
@@ -196,16 +202,16 @@ GitHub地址：<https://github.com/misja/python-boilerpipe>
 
 Python3下载安装jpype：<https://www.lfd.uci.edu/~gohlke/pythonlibs/>
 
-pip install wheel
+> pip install wheel
 
 待wheel安装好以后，在安装已经下载的JPype1-0.6.2-cp36-cp36m-win_amd64.whl 文件
 
-pip install JPype1-0.6.2-cp36-cp36m-win_amd64.whl
+> pip install JPype1-0.6.2-cp36-cp36m-win_amd64.whl
 
 安装完后如果运行程序，报ImportError: numpy.core.multiarray failed to
 import这个错误，是numby库没有安装，再安装numby库
 
-Pip install numpy
+> Pip install numpy
 
 之后在运行若有No such file or directory: 'C:\\\\Program
 Files\\\\Java\\\\jre7\\\\bin\\\\client\\\\jvm.dll'
@@ -213,19 +219,21 @@ Files\\\\Java\\\\jre7\\\\bin\\\\client\\\\jvm.dll'
 这个错误，则建议重装jdk，之后找到对应的bin目录下，若发现只有server文件夹而没有client文件夹，那么建议复制一个server命名为client（server文件夹中有jvm.dll）
 
 #### 使用
+```
 
 **from** boilerpipe**.**extract **import** Extractor
 
 extractor **=** Extractor**(**extractor**=**'ArticleExtractor'**,**
 url**=**your_url**)**
+```
 
 提取正文
 
-extracted_text **=** extractor**.**getText**()**
+`extracted_text **=** extractor**.**getText**()**`
 
 提取html
 
-extracted_html **=** extractor**.**getHTML**()**
+`extracted_html **=** extractor**.**getHTML**()**`
 
 #### 总结
 
@@ -234,9 +242,11 @@ extracted_html **=** extractor**.**getHTML**()**
 可以自己选择抽取出的正文内容格式：可以是纯文本的，也可以是携带HTML的；
 
 且测试时对于传入url的情况，由于网页编码不同所以常会报错，对于这种情况，可以传入一个html：
+```
 
 extractor **=** Extractor**(**extractor**=**'ArticleExtractor'**,**
 html**=**your_html**)**
+```
 
 然后通过正则根据不同网页的编码来提取，这样也能做到抓取100同样的新闻耗时为43秒，但是检查后发现抓取的内容虽是正文但是往往只有一部分内容!
 ；
@@ -260,7 +270,7 @@ GitHub地址：<https://github.com/dcramer/decruft>
 
 未测试，应该与readability相近
 
-Java
+## Java
 ----
 
 ### Cx-extractor
@@ -278,6 +288,7 @@ GitHub地址：<https://github.com/jiangzhuo/cx-extractor>
 #### 使用
 
 核心代码如下所示：
+```
 
 // 通过Jsoup来获取html，在此设置了范文数据包的头部，因为有些网站会屏蔽爬虫。
 
@@ -287,6 +298,7 @@ String content **=** Jsoup**.**connect**(**url**).**userAgent**(**"Mozilla/5.0
 // html_article即为解析出的正文。
 
 String html_article **=** CXTextExtract**.**parse**(**content**);**
+```
 
 #### 总结
 
@@ -305,6 +317,7 @@ GitHub地址：<https://github.com/kohlschutter/boilerpipe>
 #### 使用
 
 核心代码如下所示：
+```
 
 String content = Jsoup.connect(url).userAgent("Mozilla/5.0
 (jsoup)").get().html();
@@ -312,6 +325,7 @@ String content = Jsoup.connect(url).userAgent("Mozilla/5.0
 // 使用Bolierpipe来获取网页正文内容
 
 String parse_article = ArticleExtractor.INSTANCE.getText(content);
+```
 
 #### 总结
 
@@ -336,6 +350,7 @@ ContentExtractor的网页正文抽取算法使用的是CEPR，适用于几乎所
 ContentExtractor的接口非常简单，用户可以根据网页的url，或者网页的html，来进行网页正文抽取：
 
 根据url，抽取网页的正文：
+```
 
 public static void main**(**String**[]** args**) throws** Exception **{**
 
@@ -344,9 +359,11 @@ String content**=**ContentExtractor**.**getContentByURL**(url**);
 System**.**out**.**println**(**content**);**
 
 **}**
+```
 
 根据html，抽取网页的正文：
 
+```
 **public static void** main**(**String**[]** args**) throws** Exception **{**
 
 String html**=**"获取到的html源码"**;**
@@ -356,6 +373,7 @@ String content**=**ContentExtractor**.**getContentByHtml**(**html**);**
 System**.**out**.**println**(**content**);**
 
 **}**
+```
 
 #### 导入
 
@@ -376,6 +394,7 @@ GitHub地址：<https://github.com/wuman/JReadability>
 #### 使用
 
 Readability通过任何一个提供的构造函数实例化该类，具体取决于感兴趣的HTML页面的来源（html文档或url）：
+```
 
 Readability readability **= new** Readability**(**html**);** // String
 
@@ -412,12 +431,14 @@ Log**.**e**(**LOG_TAG**,** msg**,** t**);**
 **}**
 
 **};**
+```
 
 #### 导入
 
 1、可以下载已发布的jar文件
 
 2、如果使用Maven构建项目，则只需向此库添加依赖项即可
+```
 
 \<dependency\>
 
@@ -428,8 +449,9 @@ Log**.**e**(**LOG_TAG**,** msg**,** t**);**
 \<version\>1.3\</version\>
 
 \</dependency\>
+```
 
-Php
+## Php
 ---
 
 爬虫框架：<https://github.com/owner888/phpspider>
@@ -448,9 +470,10 @@ GitHub地址：<https://github.com/feelinglucky/php-readability>
 
 #### 安装、使用
 
-\$ sudo apt-get install php7.1-xml php7.1-mbstring
+`\$ sudo apt-get install php7.1-xml php7.1-mbstring`
 
 要求：PHP 5.6+, ext-dom, ext-xml, and ext-mbstring（依赖）
+```
 
 **use andreskrey\\Readability\\Readability;**
 
@@ -471,9 +494,10 @@ GitHub地址：<https://github.com/feelinglucky/php-readability>
 **echo sprintf('Error processing text: %s', \$e-\>getMessage());**
 
 **}**
+```
 
-Node.js
--------
+## Node.js
+---
 
 ### arex
 
@@ -485,13 +509,14 @@ GitHub地址：<https://github.com/ahkimkoo/arex>
 
 #### 安装
 
-npm install arex
+> npm install arex
 
 #### 使用
 
-**var** arex **=** require**(**'arex'**);**
+`**var** arex **=** require**(**'arex'**);**`
 
 //example 1, 给定网址自动抓取，提取正文，生成摘要
+```
 
 arex**.**get_article**(**'http://finance.sina.com.cn/consume/puguangtai/2016-03-15/doc-ifxqhmve9227502.shtml'**,**120**,(**err**,**result**)=\>{**
 
@@ -502,9 +527,11 @@ arex**.**get_article**(**'http://finance.sina.com.cn/consume/puguangtai/2016-03-
 console**.**log**(**result**['content']);**
 
 **});**
+```
 
 //example 2, 给html内容，提取正文，生成摘要
 
+```
 result **=**
 arex**.**get_article_sync**(**'\<html.........\</html\>'**,**120**);**
 
@@ -526,6 +553,7 @@ filter是过滤规则，符合规则的段落都会被过滤不作为摘要
 0.04**, true,** 100**,** 300**);**
 
 //摘要长度比例 4%, 最短 100, 最长 300
+```
 
 #### 算法说明
 
@@ -557,13 +585,13 @@ GitHub地址：<https://github.com/luin/readability>
 
 #### 安装
 
-\$ npm install node-readability
+> \$ npm install node-readability
 
 注意，从v2.0.0开始，这个模块只支持node.js \> = 2.0的版本
 
 若要在node.js 1.x版本中使用 则是：
 
-\$ npm install node-readability\@1
+> \$ npm install node-readability\@1
 
 #### 使用
 
@@ -581,6 +609,7 @@ read(html [, options], callback)
 3、callbac运行回调 run - callback(error, article, meta)
 
 例子
+```
 
 var read **=** require**(**'node-readability'**);**
 
@@ -611,9 +640,10 @@ console**.**log**(**meta**);**
 article**.**close**();**
 
 **});**
+```
 
-.Net
-----
+## .Net
+---
 
 ### Html2Article
 
@@ -635,11 +665,12 @@ GitHub地址：<https://github.com/stanzhai/Html2Article>
 
 #### 使用
 
-PM\> Install-Package Html2Article
+> PM\> Install-Package Html2Article
 
 引入命名空间using StanSoft;
 
 添加如下代码：
+```
 
 // html为你要提取的html文本
 
@@ -649,6 +680,7 @@ string html = "\<html\>....\</html\>";
 article对象包含Title(标题)，PublishDate(发布日期)，Content(正文)和ContentWithTags(带标签正文)四个属性
 
 Article article = Html2Article.GetArticle(html);
+```
 
 #### 总结
 
