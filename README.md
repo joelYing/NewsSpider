@@ -7,7 +7,6 @@
 
 <br>
 ## 网页正文提取
----
 
 <https://www.cnblogs.com/zhengyou/p/3605458.html>
 
@@ -640,7 +639,7 @@ article**.**close**();**
 
 ## .Net
 
-* Html2Article
+### Html2Article
 
 #### 简介
 
