@@ -331,6 +331,8 @@ String parse_article = ArticleExtractor.INSTANCE.getText(content);
 
 ### ContentExtractor
 
+new address <https://github.com/CrawlScript/WebCollector>
+
 #### 简介
 
 ContentExtractor是一个开源的网页正文抽取工具，用JAVA实现，具有非常高的抽取精度。
